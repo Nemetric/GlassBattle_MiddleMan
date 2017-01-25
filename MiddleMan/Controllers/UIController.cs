@@ -12,6 +12,9 @@ namespace MiddleMan.Controllers
         // GET: Display
         public ActionResult ChangeColor(int Id, string color)
         {
+            string path = Server.MapPath("~/App_Data/HexColor.txt");
+            string[] Color = { color };
+            System.IO.File.WriteAllLines(path, Color);
             var retVal = new {
                 status = "success",
                 message = ""
