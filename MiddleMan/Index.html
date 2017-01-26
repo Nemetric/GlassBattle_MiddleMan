@@ -1,0 +1,83 @@
+﻿<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title></title>
+	<meta charset="utf-8" />
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body style="background-color:slategrey;">
+
+    <div class="row">
+        <div class="col-lg-6 col-lg-offset-3">
+            <br />
+            <select class="form-control">
+                <option selected disabled>Choose a Screen ID</option>
+                <option>001</option>
+                <option>002</option>
+                <option>003</option>
+                <option>004</option>
+                <option>005</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-6 col-lg-offset-3" >
+            <br />
+            <input id="html5colorpicker" value="#ff9900" style="width:100%;" type="color">
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-offset-4">
+            <br />
+            <button type="button" class="btn btn-lg col-lg-6" id="btnSubmit"><span class="glyphicon glyphicon-tint" aria-hidden="true"></span>    Change Color</button>
+        </div>
+    </div>
+
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+        <script src="js/jquery.min.js"></script>
+        <!-- Include all compiled plugins (below), or include individual files as needed -->
+        <script src="js/bootstrap.min.js"></script>
+
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+
+            $("#btnSubmit").click(function () {
+                var color = $('#html5colorpicker').val();
+                var id = 1;
+
+                //alert(color);
+
+                var url = "http://glassbattleapp.azurewebsites.net/ui/ChangeColor/" + id + "?color=" + encodeURIComponent(color);
+                
+                $.get(url, function (data) {
+                    alert("Congratulations! You have successfully changed the background color of a random monitor on the Internet! -- Bryce and Adam");
+                });
+
+            });
+
+        });
+
+    </script>
+
+</body>
+
+</html>
