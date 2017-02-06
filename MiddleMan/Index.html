@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <title></title>
-	<meta charset="utf-8" />
+    <meta charset="utf-8" />
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
@@ -38,9 +38,12 @@
     </div>
 
     <div class="row">
-        <div class="col-lg-6 col-lg-offset-3" >
+        <div class="col-lg-6 col-lg-offset-3">
             <br />
+            <input id="TextBox" type="text" class="form-control">
+            <br>
             <input id="html5colorpicker" value="#ff9900" style="width:100%;" type="color">
+            <br />
         </div>
     </div>
 
@@ -51,10 +54,10 @@
         </div>
     </div>
 
-        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-        <script src="js/jquery.min.js"></script>
-        <!-- Include all compiled plugins (below), or include individual files as needed -->
-        <script src="js/bootstrap.min.js"></script>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="js/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
 
     <script type="text/javascript">
 
@@ -63,21 +66,24 @@
             $("#btnSubmit").click(function () {
                 var color = $('#html5colorpicker').val();
                 var id = 1;
+                var text = $('#TextBox').val();
 
                 //alert(color);
 
-                var url = "http://glassbattleapp.azurewebsites.net/ui/ChangeColor/" + id + "?color=" + encodeURIComponent(color);
-                
+
+                var url = "http://glassbattleapp.azurewebsites.net/ui/ChangeColor/" + id + "?color=" + encodeURIComponent(color) + "&text=" + encodeURIComponent(text);
+
+
                 $.get(url, function (data) {
-                    alert("Congratulations! You have successfully changed the background color of a random monitor on the Internet! -- Bryce and Adam");
+                    alert("The last part");
                 });
 
+                });
             });
-
-        });
 
     </script>
 
 </body>
 
 </html>
+

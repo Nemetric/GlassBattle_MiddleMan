@@ -14,6 +14,9 @@ namespace MiddleMan.Models
         [DataMember]
         public string Color { get; set; }
         [DataMember]
-        public string FriendlyName { get; set; } 
+        public string FriendlyName { get; set; }
+        [DataMember]
+        public string Text { get; set; }
+
     }
 }

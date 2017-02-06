@@ -232,6 +232,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Data\HexColor.txt" />
+    <Content Include="App_Data\TextFromTheBox.txt" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="css\bootstrap-theme.css" />
@@ -306,6 +307,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\Display\" />
+    <Folder Include="Views\Text\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
