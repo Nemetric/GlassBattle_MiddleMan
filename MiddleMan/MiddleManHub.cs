@@ -8,7 +8,6 @@ namespace MiddleMan
 {
     public class MiddleManHub : Hub
     {
-
         public void Announce(string message)
         {
             Clients.All.Announce(message);

@@ -71,15 +71,15 @@
                 //alert(color);
 
 
-                var url = "http://glassbattleapp.azurewebsites.net/ui/ChangeColor/" + id + "?color=" + encodeURIComponent(color) + "&text=" + encodeURIComponent(text);
+                var url = "http://localhost:58592//ui/ChangeColor/" + id + "?color=" + encodeURIComponent(color) + "&text=" + encodeURIComponent(text);
 
 
                 $.get(url, function (data) {
                     alert("The last part");
                 });
 
-                });
             });
+        });
 
     </script>
 
