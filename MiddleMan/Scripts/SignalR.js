@@ -1,16 +1,18 @@
 ﻿var hub = $.connection.middleManHub;
+
+hub.client.broadcastMessage = function (message) {
+    $("#textfieldres").val(message);
+}
+
 $.connection.hub.start()
  .done(function () {
-     $.connection.middleManHub.server.Announce = function (message) { alert(message); };
-   
+     $("#textfield").on('change keyup paste mouseup',function () {
+         var texty = $("#textfield").val();
 
-})
+         hub.server.announce(texty);
+     });
+ })
 .fail(function () { alert("Failed Connection.") });
-$("#btn").click(function () {
-    hub.server.Announce("hey this is a client talking to the other ones.")
-});
-
-
 
 //$.connection.MiddleManHub.client.Announce = function (message) { alert(message) };
 //console.log($.signalR);

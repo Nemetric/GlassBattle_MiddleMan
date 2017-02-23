@@ -8,9 +8,9 @@ namespace MiddleMan
 {
     public class MiddleManHub : Hub
     {
-        public void Announce(string message)
+        public void announce(string message)
         {
-            Clients.All.Announce(message);
+            Clients.All.broadcastMessage(message);
         }
 
     }
