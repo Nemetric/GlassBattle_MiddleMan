@@ -308,6 +308,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\Display\" />
+    <Folder Include="Views\Room\" />
     <Folder Include="Views\Text\" />
   </ItemGroup>
   <ItemGroup>

@@ -14,5 +14,3 @@ $.connection.hub.start()
  })
 .fail(function () { alert("Failed Connection.") });
 
-//$.connection.MiddleManHub.client.Announce = function (message) { alert(message) };
-//console.log($.signalR);
