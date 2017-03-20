@@ -2,18 +2,67 @@
     ViewBag.Title = "Home Page";
 }
 <h1>Hello!</h1>
-<form>
 
-    Enter Text Here <br>
-    <input type="text" id="textfield" /><br>
-    What should pop-up on other peoples' screens.<br>
-    <input type="text" id="textfieldres" /><br>
+<h1 class="text-center">GlassBattle Controls</h1>
+<h3 class="text-center">Enter your username and wait your turn on the display.</h3>
+<h3 class="text-center">Use the scrollbar to control your paddle.</h3>
 
-</form>
+
+<div style="background-color:whitesmoke; height:50em;">
+
+    <div class="col-lg-6">
+        <br />
+        <h4 class="text-center">Type your name here. Scroll to submit.</h4>
+        <form>
+            <input id="namnam" type="text" class="form-control col-sm-6" style="width:100%;" maxlength="10">
+        </form>
+    </div>
+
+    <br />
+    <br />
+
+    <div class="col-lg-6 panel panel-default">
+        <h4 class="text-center"> Scroll up and down to control your paddle. Your name will appear on the display when it's your turn.</h4>
+    </div>
+</div>
+
 @section scripts {
     <script src="~/Scripts/jquery.signalR-2.2.1.min.js"></script>
     <script src="~/signalr/hubs"></script>
-    <script src="~/Scripts/SignalR.js?ts=@DateTime.Now.Millisecond"></script>
 
+    <script type="text/javascript">
 
+        $(document).ready(function () {
+            document.onscroll = function () { myFunction() };
+
+            var hub = $.connection.middleManHub;
+            $.connection.hub.start();
+
+            $("#namnam").change(function () {
+
+                hub.server.newuser($(this).val());
+
+                //if (namnam.disabled == false && namnam.value != '') {
+                //    namnam.disabled = true;
+                //    var username = namnam.value.toString();
+                //    window.console.log(username);
+                //}
+
+            });
+
+            function myFunction() {
+
+                var doc = document.documentElement;
+                var scr = ((window.pageYOffset - doc.clientTop) / (doc.scrollHeight - doc.clientHeight)) * -200 - 100;
+
+                if (scr > -25 && scr < 25) {
+                    scr = 0;
+                }
+
+                hub.server.newscr(scr, $("#namnam").val());
+
+                window.console.log(scr);
+            }
+        });
+    </script>
 }
